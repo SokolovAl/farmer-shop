@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>ru.aston.farmer_shop</groupId>
+  <groupId>ru.aston.farmershop</groupId>
   <artifactId>farmer-shop</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
@@ -17,6 +17,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
+    <spring.version>5.3.24</spring.version>
   </properties>
 
   <dependencies>
@@ -25,24 +26,6 @@
       <artifactId>junit</artifactId>
       <version>4.11</version>
       <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-core</artifactId>
-      <version>5.3.24</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-beans</artifactId>
-      <version>5.3.24</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>5.3.24</version>
     </dependency>
 
     <dependency>
@@ -57,41 +40,119 @@
       <version>42.5.1</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+
 
   </dependencies>
 
   <build>
-    <finalName>farmer-shop</finalName>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+    <finalName>farmer_shop</finalName>
+    <pluginManagement>
       <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.1.0</version>
+          <executions>
+            <execution>
+              <id>default-war</id>
+              <phase>prepare-package</phase>
+              <configuration>
+                <failOnMissingWebXml>false</failOnMissingWebXml>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <groupId>org.codehaus.cargo</groupId>
+          <artifactId>cargo-maven3-plugin</artifactId>
+          <version>1.10.4</version>
+          <configuration>
+            <container>
+              <containerId>tomcat9x</containerId>
+              <type>embedded</type>
+            </container>
+            <configuration>
+              <properties>
+                <cargo.servlet.port>8091</cargo.servlet.port>
+                <cargo.tomcat.manager.url>http://localhost:8091</cargo.tomcat.manager.url>
+              </properties>
+            </configuration>
+            <deployables>
+              <deployable>
+                <groupId>ru.aston.farmershop</groupId>
+                <artifactId>farmer-shop</artifactId>
+                <type>war</type>
+                <properties>
+                  <!--important reference-->
+                  <!--https://codehaus-cargo.github.io/cargo/Maven2+Plugin+Reference+Guide.html-->
+                  <!--https://stackoverflow.com/questions/17194226/cargo-maven2-plugin-change-target-text-on-remote-type-->
+                  <context>/</context>
+                </properties>
+              </deployable>
+            </deployables>
+          </configuration>
+
+          <executions>
+            <execution>
+              <id>start-server</id>
+              <phase>package</phase>
+              <goals>
+                <goal>run</goal>
+              </goals>
+            </execution>
+          </executions>
+
+        </plugin>
+
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
         </plugin>
+
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>
         </plugin>
+
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.0</version>
         </plugin>
+
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
         </plugin>
-        <plugin>
-          <artifactId>maven-war-plugin</artifactId>
-          <version>3.2.2</version>
-        </plugin>
+
+
+
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
           <version>2.5.2</version>
         </plugin>
+
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
         </plugin>
+
+
+
+
         <plugin>
           <groupId>org.liquibase</groupId>
           <artifactId>liquibase-maven-plugin</artifactId>
