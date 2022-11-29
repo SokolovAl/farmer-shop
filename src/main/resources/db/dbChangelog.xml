@@ -1,0 +1,51 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <include file="init.xml" relativeToChangelogFile="true"/>
+</databaseChangeLog>
+
+        <!--<changeSet author="monko (generated)" id="1669633401816-1">-->
+        <!--<createTable tableName="users">-->
+        <!--    <column name="Id" type="BIGINT">-->
+        <!--        <constraints nullable="false" primaryKey="true" primaryKeyName="User_pkey"/>-->
+        <!--    </column>-->
+        <!--    <column name="name" type="VARCHAR">-->
+        <!--        <constraints nullable="false"/>-->
+        <!--    </column>-->
+        <!--    <column name="phoneNum" type="VARCHAR">-->
+        <!--        <constraints nullable="false"/>-->
+        <!--    </column>-->
+        <!--    <column name="email" type="VARCHAR">-->
+        <!--        <constraints nullable="false"/>-->
+        <!--    </column>-->
+        <!--    <column name="address" type="VARCHAR">-->
+        <!--        <constraints nullable="false"/>-->
+        <!--    </column>-->
+        <!--    <column name="password" type="VARCHAR">-->
+        <!--        <constraints nullable="false"/>-->
+        <!--    </column>-->
+        <!--    <column name="role" type="VARCHAR">-->
+        <!--        <constraints nullable="false"/>-->
+        <!--    </column>-->
+        <!--</createTable>-->
+        <!--</changeSet>-->
+        <!--<changeSet author="monko (generated)" id="insert_testData_1">-->
+        <!--<insert tableName="users">-->
+        <!--    <column name="Id" value="1"/>-->
+        <!--    <column name="Name" value="testUser"/>-->
+        <!--    <column name="phoneNum" value="89123123711"/>-->
+        <!--    <column name="email" value="test@mail.com"/>-->
+        <!--    <column name="address" value="Pushkin St."/>-->
+        <!--    <column name="role" value="Base_user"/>-->
+        <!--</insert>-->
+        <!--<insert tableName="User">-->
+        <!--    <column name="Id" value="2"/>-->
+        <!--    <column name="Name" value="testUserAdmin"/>-->
+        <!--    <column name="phoneNum" value="81231267122"/>-->
+        <!--    <column name="email" value="testAdmin@mail.com"/>-->
+        <!--    <column name="address" value="Lermontov St."/>-->
+        <!--    <column name="role" value="Admin_user"/>-->
+        <!--</insert>-->
+        <!--</changeSet>-->
