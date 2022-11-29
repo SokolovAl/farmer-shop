@@ -41,23 +41,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity
-                .csrf()
-                .disable()
-                .authorizeRequests()
-                .antMatchers("/admin")
-                .hasRole("ADMIN")
-                .antMatchers("/auth/login", "auth/registration")
-                .permitAll()
-                .and()
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
-                .and()
-                .httpBasic()
-                .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        httpSecurity.csrf().disable()
+            .authorizeRequests()
+            .antMatchers("/admin").hasRole("ADMIN")
+            .antMatchers("/auth/login", "/auth/registration").permitAll()
+            .and()
+            .authorizeRequests()
+            .antMatchers("/user").hasAnyRole("USER", "ADMIN")
+            .antMatchers("/auth/login", "/auth/registration").permitAll()
+            .and()
+            .logout()
+            .logoutUrl("/logout")
+            .logoutSuccessUrl("/")
+            .and().httpBasic()
+            .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
     }
 }
