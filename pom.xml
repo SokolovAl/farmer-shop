@@ -134,6 +134,16 @@
             <artifactId>java-jwt</artifactId>
             <version>3.18.3</version>
         </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.0.2.Final</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
