@@ -10,7 +10,7 @@
             </column>
             <column name="name" type="VARCHAR(255)"/>
             <column name="email" type="VARCHAR(255)"/>
-            <column name="phoneNum" type="VARCHAR(255)"/>
+            <column name="phone_num" type="VARCHAR(255)"/>
             <column name="address" type="VARCHAR(255)"/>
             <column defaultValueBoolean="false" name="enabled" type="BOOLEAN">
                 <constraints nullable="false"/>
