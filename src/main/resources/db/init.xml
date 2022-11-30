@@ -32,14 +32,5 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="AlSokolov" id="create_token_table">
-        <preConditions onFail="MARK_RAN"> <not> <tableExists tableName="token"/> </not> </preConditions>
-        <createTable tableName="token">
-            <column autoIncrement="true" name="id" type="BIGSERIAL">
-                <constraints primaryKey="true" primaryKeyName="pk_token"/>
-            </column>
-            <column name="user_id" type="BIGINT"/>
-            <column name="token" type="VARCHAR(255)"/>
-        </createTable>
-    </changeSet>
+
 </databaseChangeLog>
