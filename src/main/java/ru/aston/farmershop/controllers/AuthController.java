@@ -34,7 +34,13 @@ public class AuthController {
     @PostMapping("/registration")
     public Map<String, String> registration(@Valid @RequestBody RegistrationDTO registrationDTO,
                                             BindingResult bindingResult) {
-        User user = userMapper.userFromUserDto(new UserDto());
+        //TODO исправить
+//        User user = userMapper.userFromUserDto(new UserDto());
+        User user = new User();
+        user.setName(registrationDTO.getName());
+        user.setEmail(registrationDTO.getEmail());
+        user.setPassword(registrationDTO.getPassword());
+
 
         userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors())

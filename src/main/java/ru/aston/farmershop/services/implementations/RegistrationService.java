@@ -23,7 +23,7 @@ public class RegistrationService {
 
     private final PasswordEncoder passwordEncoder;
 
-    private RoleRepository roleRepository;
+    private final RoleRepository roleRepository;
 
     private final AuthenticationManager authenticationManager;
 
@@ -36,6 +36,7 @@ public class RegistrationService {
         } else {
             user.setRole(roleRepository.findById(1L).get());
         }
+        userRepository.save(user);
     }
 
     public JwtResponse authenticateUser(LoginRequest authBody) {

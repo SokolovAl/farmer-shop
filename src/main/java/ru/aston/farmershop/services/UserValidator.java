@@ -30,6 +30,6 @@ public class UserValidator implements Validator {
             return;
         }
 
-        errors.rejectValue("username", "", "empty");
+        errors.rejectValue("name", "", "empty");
     }
 }
