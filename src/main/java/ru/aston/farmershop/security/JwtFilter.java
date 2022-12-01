@@ -19,6 +19,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class JwtFilter extends OncePerRequestFilter {
 
+
     private final JwtProvider jwtProvider;
 
     private final UserDetailsServiceImpl userDetailsService;
@@ -32,7 +33,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
             if (jwt.isBlank()) {
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST,
-                        "Invalid JWT Token in Bearer Header");
+                        "Invalid JWT Token");
             } else {
                 try {
                     String username = jwtProvider.validateTokenAndRetrieveClaim(jwt);

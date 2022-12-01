@@ -12,6 +12,7 @@ import ru.aston.farmershop.services.implementations.UserDetailsServiceImpl;
 @RequiredArgsConstructor
 public class UserValidator implements Validator {
 
+
     private final UserDetailsServiceImpl userDetailsService;
 
     @Override
@@ -29,6 +30,6 @@ public class UserValidator implements Validator {
             return;
         }
 
-        errors.rejectValue("username", "", "User ---");
+        errors.rejectValue("username", "", "empty");
     }
 }
