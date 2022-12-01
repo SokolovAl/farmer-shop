@@ -1,6 +1,5 @@
-package ru.aston.farmershop.models;
+package ru.aston.farmershop.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
