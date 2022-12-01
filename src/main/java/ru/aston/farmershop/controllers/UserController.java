@@ -25,7 +25,7 @@ public class UserController {
     userService.registerUser(userDto);
   }
 
-  @GetMapping("/test")
+  @GetMapping("/user")
   public ResponseEntity<String> test() {
     return new ResponseEntity<>("test", HttpStatus.OK);
   }

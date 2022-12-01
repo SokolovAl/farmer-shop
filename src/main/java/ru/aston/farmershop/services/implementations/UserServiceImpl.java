@@ -14,8 +14,11 @@ import ru.aston.farmershop.repositories.RoleRepository;
 import ru.aston.farmershop.repositories.UserRepository;
 import ru.aston.farmershop.services.UserService;
 
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
+@Transactional
 public class UserServiceImpl implements UserService {
 
   private final RoleRepository roleRepository;
@@ -35,5 +38,9 @@ public class UserServiceImpl implements UserService {
     user.setEnabled(true);
     user.setRole(role);
     userRepository.save(user);
+  }
+
+  public Optional<User> findByName (String name) {
+    return userRepository.findByName(name);
   }
 }
