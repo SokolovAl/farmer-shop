@@ -6,7 +6,7 @@
     <insert tableName="users">
       <column name="name" value="TestUser"/>
       <column name="email" value="TestUser@mail.com"/>
-      <column name="phoneNum" value="88005553535"/>
+      <column name="phone_num" value="88005553535"/>
       <column name="address" value="Pushkin st."/>
       <column name="enabled" value="true"/>
       <column name="password" value="TestUser"/>
@@ -15,7 +15,7 @@
     <insert tableName="users">
       <column name="name" value="TestAdmin"/>
       <column name="email" value="TestAdmin@mail.com"/>
-      <column name="phoneNum" value="89005553535"/>
+      <column name="phone_num" value="89005553535"/>
       <column name="address" value="Lermontov st."/>
       <column name="enabled" value="true"/>
       <column name="password" value="TestAdmin"/>
@@ -24,7 +24,7 @@
     <insert tableName="users">
       <column name="name" value="TestSeller"/>
       <column name="email" value="TestSeller@mail.com"/>
-      <column name="phoneNum" value="87005553535"/>
+      <column name="phone_num" value="87005553535"/>
       <column name="address" value="Hashmap st."/>
       <column name="enabled" value="true"/>
       <column name="password" value="TestSeller"/>
