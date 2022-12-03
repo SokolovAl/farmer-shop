@@ -1,0 +1,34 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+  <changeSet author="monko" id="insert-users-1">
+    <insert tableName="users">
+      <column name="name" value="TestUser"/>
+      <column name="email" value="TestUser@mail.com"/>
+      <column name="phone_num" value="88005553535"/>
+      <column name="address" value="Pushkin st."/>
+      <column name="enabled" value="true"/>
+      <column name="password" value="TestUser"/>
+      <column name="role_id" value="1"/>
+    </insert>
+    <insert tableName="users">
+      <column name="name" value="TestAdmin"/>
+      <column name="email" value="TestAdmin@mail.com"/>
+      <column name="phone_num" value="89005553535"/>
+      <column name="address" value="Lermontov st."/>
+      <column name="enabled" value="true"/>
+      <column name="password" value="TestAdmin"/>
+      <column name="role_id" value="2"/>
+    </insert>
+    <insert tableName="users">
+      <column name="name" value="TestSeller"/>
+      <column name="email" value="TestSeller@mail.com"/>
+      <column name="phone_num" value="87005553535"/>
+      <column name="address" value="Hashmap st."/>
+      <column name="enabled" value="true"/>
+      <column name="password" value="TestSeller"/>
+      <column name="role_id" value="3"/>
+    </insert>
+  </changeSet>
+</databaseChangeLog>
