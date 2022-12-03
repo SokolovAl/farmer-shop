@@ -1,34 +1,33 @@
 package ru.aston.farmershop.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
+
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = Role.TABLE_NAME)
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter(AccessLevel.PUBLIC)
-@ToString
+@NoArgsConstructor
 public class Role {
 
-  public static final String TABLE_NAME = "roles";
+    public static final String TABLE_NAME = "roles";
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-  private String name;
+    private String name;
+
+    @OneToMany(mappedBy = "role")
+    private Collection<User> users;
+
+    public Role(String name) {
+        this.name = name;
+    }
 
 }
