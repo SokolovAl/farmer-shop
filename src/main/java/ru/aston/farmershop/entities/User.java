@@ -30,7 +30,9 @@ public class User {
     private boolean enabled;
 
     private String password;
-
     @ManyToOne(fetch = FetchType.LAZY)
     private Role role;
+
+    @OneToOne
+    private Bucket bucket;
 }
