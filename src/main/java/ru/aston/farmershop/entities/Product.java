@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "products")
@@ -26,7 +27,7 @@ public class Product {
     private Long quantity;
 
     @Column(name = "price")
-    private Long price;
+    private BigDecimal price;
 
     @ManyToOne
     @JoinColumn(name = "type_id", nullable = false)

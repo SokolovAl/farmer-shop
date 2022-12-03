@@ -109,4 +109,104 @@
                                  onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="users"/>
     </changeSet>
+    <changeSet author="AlSokolov" id="create_bucket_table">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="bucket"/>
+            </not>
+        </preConditions>
+        <createTable tableName="bucket">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_bucket"/>
+            </column>
+            <column name="user_id" type="BIGSERIAL"/>
+            <column name="order_detail_id" type="BIGSERIAL"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="AlSokolov" id="create_orders_table">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="orders"/>
+            </not>
+        </preConditions>
+        <createTable tableName="orders">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_orders"/>
+            </column>
+            <column name="user_id" type="BIGSERIAL"/>
+            <column name="total_cost" type="BIGSERIAL"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="order_detail_id" type="BIGSERIAL"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="AlSokolov" id="create_order_details_table">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="order_details"/>
+            </not>
+        </preConditions>
+        <createTable tableName="order_details">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_order_details"/>
+            </column>
+            <column name="product_id" type="BIGSERIAL"/>
+            <column name="price" type="BIGSERIAL"/>
+            <column name="quantity" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="AlSokolov" id="add_fk_user_id_field_orders_table">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="users"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="orders" constraintName="users"
+                                 deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+                                 onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="orders"/>
+    </changeSet>
+    <changeSet author="AlSokolov" id="add_fk_order_detail_id_field_orders_table">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="order_details"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="order_detail_id" baseTableName="orders" constraintName="order_details"
+                                 deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+                                 onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="order_details"/>
+    </changeSet>
+    <changeSet author="AlSokolov" id="add_fk_product_id_field_order_details_table">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="products"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="order_details" constraintName="products"
+                                 deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+                                 onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="products"/>
+    </changeSet>
+    <changeSet author="AlSokolov" id="add_fk_user_id_field_bucket_table">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="users"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="bucket" constraintName="users"
+                                 deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+                                 onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="users"/>
+    </changeSet>
+    <changeSet author="AlSokolov" id="add_fk_order_detail_id_field_bucket_table">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="order_details"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="order_detail_id" baseTableName="bucket" constraintName="order_details"
+                                 deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
+                                 onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="order_details"/>
+    </changeSet>
 </databaseChangeLog>
