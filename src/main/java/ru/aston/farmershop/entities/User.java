@@ -1,16 +1,21 @@
 package ru.aston.farmershop.entities;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.Builder;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = User.TABLE_NAME)
 @Getter
-@Setter(AccessLevel.PUBLIC)
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Setter(AccessLevel.PUBLIC)
+@Table(name = User.TABLE_NAME)
 public class User {
 
     public static final String TABLE_NAME = "users";

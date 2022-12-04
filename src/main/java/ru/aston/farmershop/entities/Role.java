@@ -5,14 +5,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
 import java.util.Collection;
 
 @Entity
-@Table(name = Role.TABLE_NAME)
 @Getter
-@Setter(AccessLevel.PUBLIC)
 @NoArgsConstructor
+@Setter(AccessLevel.PUBLIC)
+@Table(name = Role.TABLE_NAME)
 public class Role {
 
     public static final String TABLE_NAME = "roles";
