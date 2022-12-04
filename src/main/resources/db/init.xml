@@ -135,7 +135,6 @@
             </column>
             <column name="user_id" type="BIGSERIAL"/>
             <column name="total_cost" type="BIGSERIAL"/>
-            <column name="status" type="VARCHAR(255)"/>
             <column name="order_detail_id" type="BIGSERIAL"/>
         </createTable>
     </changeSet>
