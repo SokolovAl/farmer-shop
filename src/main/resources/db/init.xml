@@ -135,7 +135,6 @@
             </column>
             <column name="user_id" type="BIGSERIAL"/>
             <column name="total_cost" type="BIGSERIAL"/>
-            <column name="order_detail_id" type="BIGSERIAL"/>
         </createTable>
     </changeSet>
     <changeSet author="AlSokolov" id="create_order_details_table">
@@ -151,6 +150,7 @@
             <column name="product_id" type="BIGSERIAL"/>
             <column name="price" type="BIGSERIAL"/>
             <column name="quantity" type="BIGINT"/>
+            <column name="order_id" type="BIGSERIAL"/>
         </createTable>
     </changeSet>
     <changeSet author="AlSokolov" id="add_fk_user_id_field_orders_table">
@@ -164,16 +164,16 @@
                                  onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="orders"/>
     </changeSet>
-    <changeSet author="AlSokolov" id="add_fk_order_detail_id_field_orders_table">
+    <changeSet author="AlSokolov" id="add_fk_order_id_field_order_details_table">
         <preConditions onFail="MARK_RAN">
             <not>
-                <foreignKeyConstraintExists foreignKeyName="order_details"/>
+                <foreignKeyConstraintExists foreignKeyName="orders"/>
             </not>
         </preConditions>
-        <addForeignKeyConstraint baseColumnNames="order_detail_id" baseTableName="orders" constraintName="order_details"
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="order_details" constraintName="orders"
                                  deferrable="false" initiallyDeferred="false" onDelete="CASCADE"
                                  onUpdate="NO ACTION"
-                                 referencedColumnNames="id" referencedTableName="order_details"/>
+                                 referencedColumnNames="id" referencedTableName="orders"/>
     </changeSet>
     <changeSet author="AlSokolov" id="add_fk_product_id_field_order_details_table">
         <preConditions onFail="MARK_RAN">
