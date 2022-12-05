@@ -8,6 +8,7 @@ import ru.aston.farmershop.entities.User;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface UserMapper {
 
-    User userFromUserDto(UserDto userDto);
+    User toUser(UserDto userDto);
 
+    UserDto toUserDto(User user);
 }

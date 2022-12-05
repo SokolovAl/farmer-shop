@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.aston.farmershop.dto.JwtResponse;
 import ru.aston.farmershop.dto.LoginRequest;
 import ru.aston.farmershop.dto.RegistrationDTO;
-import ru.aston.farmershop.dto.UserDto;
 import ru.aston.farmershop.entities.User;
-import ru.aston.farmershop.mappers.implementations.UserMapperImpl;
 import ru.aston.farmershop.security.JwtProvider;
 import ru.aston.farmershop.services.UserValidator;
 import ru.aston.farmershop.services.implementations.RegistrationService;
@@ -26,7 +24,6 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class AuthController {
 
-    private final UserMapperImpl userMapper;
     private final UserValidator userValidator;
     private final JwtProvider jwtProvider;
     private final RegistrationService registrationService;
