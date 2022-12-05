@@ -27,6 +27,7 @@ public class User {
     private String name;
 
     private String email;
+
     @Column(name = "phone_num")
     private String phoneNum;
 
@@ -35,9 +36,8 @@ public class User {
     private boolean enabled;
 
     private String password;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Role role;
 
-    @OneToOne
-    private Bucket bucket;
 }
