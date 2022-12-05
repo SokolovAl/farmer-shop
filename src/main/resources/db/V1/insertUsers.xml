@@ -9,7 +9,7 @@
       <column name="phone_num" value="88005553535"/>
       <column name="address" value="Pushkin st."/>
       <column name="enabled" value="true"/>
-      <column name="password" value="TestUser"/>
+      <column name="password" value="$2a$10$8loc.L7OYQgY7mQ27J7BY.kYbOv4r2yB8qrvkCoPexI1o1Emt3PSe"/>
       <column name="role_id" value="1"/>
     </insert>
     <insert tableName="users">
@@ -18,7 +18,7 @@
       <column name="phone_num" value="89005553535"/>
       <column name="address" value="Lermontov st."/>
       <column name="enabled" value="true"/>
-      <column name="password" value="TestAdmin"/>
+      <column name="password" value="$2a$10$bGZaOv8AAjkkGUrNGeFP6eYfKaBQ7ZMpfYlWjnoIBRgPxKCvr/o9C"/>
       <column name="role_id" value="2"/>
     </insert>
     <insert tableName="users">
@@ -27,7 +27,7 @@
       <column name="phone_num" value="87005553535"/>
       <column name="address" value="Hashmap st."/>
       <column name="enabled" value="true"/>
-      <column name="password" value="TestSeller"/>
+      <column name="password" value="$2a$10$c2ZEOeTXoUQ3.x8JV7kZ9OyaocMCgs6uqPz21.6GzYLeN//BdLFYy"/>
       <column name="role_id" value="3"/>
     </insert>
   </changeSet>
