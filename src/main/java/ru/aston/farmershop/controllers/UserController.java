@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 import ru.aston.farmershop.entities.User;
 import ru.aston.farmershop.services.implementations.RegistrationService;
 
+/**
+ * Controller that handles user requests.
+ */
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/user")
