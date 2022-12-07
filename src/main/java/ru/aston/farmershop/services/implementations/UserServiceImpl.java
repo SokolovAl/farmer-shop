@@ -7,10 +7,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.aston.farmershop.dto.UserDto;
 import ru.aston.farmershop.entities.User;
+import ru.aston.farmershop.mappers.UserMapper;
 import ru.aston.farmershop.repositories.UserRepository;
 import ru.aston.farmershop.services.UserService;
 
-
+/**
+ * Service that works with {@link UserRepository} and {@link User} entity.
+ */
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -18,6 +21,8 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     private final PasswordEncoder passwordEncoder;
+
+    private final UserMapper userMapper;
 
     @Override
     public List<User> getAllUsers() {
@@ -33,12 +38,11 @@ public class UserServiceImpl implements UserService {
     public void updateUser(Long id, UserDto userDto) {
         Optional<User> optionalUser = userRepository.findById(id);
         if(optionalUser.isPresent()){
-            User user = optionalUser.get();
-            user.setName(userDto.getName());
-            user.setPhoneNum(userDto.getPhoneNum());
-            user.setEmail(user.getEmail());
-            user.setAddress(userDto.getAddress());
-            user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+            userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
+            User user = userMapper.toUser(userDto);
+            user.setId(id);
+            user.setRole(optionalUser.get().getRole());
+            user.setEnabled(optionalUser.get().isEnabled());
             userRepository.save(user);
         }
     }

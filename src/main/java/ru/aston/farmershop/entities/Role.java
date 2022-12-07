@@ -1,6 +1,5 @@
 package ru.aston.farmershop.entities;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,8 +15,8 @@ import java.util.Collection;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
-@Setter(AccessLevel.PUBLIC)
 @Table(name = Role.TABLE_NAME)
 public class Role {
 

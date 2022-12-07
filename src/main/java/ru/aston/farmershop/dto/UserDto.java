@@ -5,7 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import ru.aston.farmershop.entities.User;
 
+/**
+ * {@link User} entity Dto.
+ */
 @Getter
 @Setter
 @ToString

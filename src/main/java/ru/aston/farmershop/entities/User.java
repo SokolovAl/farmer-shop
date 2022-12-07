@@ -11,18 +11,15 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.Builder;
-import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
-
-
 @Entity
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Setter(AccessLevel.PUBLIC)
 @Table(name = User.TABLE_NAME)
 public class User {
 

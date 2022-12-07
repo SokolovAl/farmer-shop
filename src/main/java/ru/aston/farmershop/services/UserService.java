@@ -10,6 +10,7 @@ import ru.aston.farmershop.entities.User;
 public interface UserService {
 
     List<User> getAllUsers();
+
     void removeUserById(Long id);
 
     void updateUser(Long id, UserDto userDto);
