@@ -17,12 +17,6 @@ public class UserController {
 
     private final RegistrationService registrationService;
 
-    @PostMapping("/register")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void registerNewUser(@RequestBody User user) {
-        registrationService.register(user);
-    }
-
     @GetMapping("/user")
     public ResponseEntity<String> test() {
         return new ResponseEntity<>("test", HttpStatus.OK);
