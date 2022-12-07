@@ -4,13 +4,13 @@
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
   <changeSet author="monko" id="insert-roles">
     <insert tableName="roles">
-      <column name="name" value="User"/>
+      <column name="name" value="USER"/>
     </insert>
     <insert tableName="roles">
-      <column name="name" value="Admin"/>
+      <column name="name" value="ADMIN"/>
     </insert>
     <insert tableName="roles">
-      <column name="name" value="Seller"/>
+      <column name="name" value="SELLER"/>
     </insert>
   </changeSet>
 </databaseChangeLog>

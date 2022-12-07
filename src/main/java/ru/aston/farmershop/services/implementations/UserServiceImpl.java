@@ -2,6 +2,7 @@ package ru.aston.farmershop.services.implementations;
 
 import java.util.List;
 import java.util.Optional;
+import javax.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -44,6 +45,9 @@ public class UserServiceImpl implements UserService {
             user.setRole(optionalUser.get().getRole());
             user.setEnabled(optionalUser.get().isEnabled());
             userRepository.save(user);
+        }
+        else {
+            throw new EntityNotFoundException();
         }
     }
 }
