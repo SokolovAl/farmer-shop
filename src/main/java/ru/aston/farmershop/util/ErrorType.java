@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public enum ErrorType {
     ENTITY_NOT_FOUND(HttpStatus.UNPROCESSABLE_ENTITY),
-    BAD_REQUEST(HttpStatus.BAD_REQUEST);
+    BAD_REQUEST(HttpStatus.BAD_REQUEST),
+    NOT_ENOUGH_MONEY(HttpStatus.BAD_REQUEST);
+
 
     private final HttpStatus status;
 }

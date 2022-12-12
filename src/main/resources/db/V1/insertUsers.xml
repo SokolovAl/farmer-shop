@@ -11,6 +11,7 @@
       <column name="enabled" value="true"/>
       <column name="password" value="$2a$10$8loc.L7OYQgY7mQ27J7BY.kYbOv4r2yB8qrvkCoPexI1o1Emt3PSe"/>
       <column name="role_id" value="1"/>
+      <column name="balance" value="12000.1224"/>
     </insert>
     <insert tableName="users">
       <column name="name" value="TestAdmin"/>
@@ -20,6 +21,7 @@
       <column name="enabled" value="true"/>
       <column name="password" value="$2a$10$bGZaOv8AAjkkGUrNGeFP6eYfKaBQ7ZMpfYlWjnoIBRgPxKCvr/o9C"/>
       <column name="role_id" value="2"/>
+      <column name="balance" value="12000.1224"/>
     </insert>
     <insert tableName="users">
       <column name="name" value="TestSeller"/>
@@ -29,6 +31,7 @@
       <column name="enabled" value="true"/>
       <column name="password" value="$2a$10$c2ZEOeTXoUQ3.x8JV7kZ9OyaocMCgs6uqPz21.6GzYLeN//BdLFYy"/>
       <column name="role_id" value="3"/>
+      <column name="balance" value="12000.1224"/>
     </insert>
   </changeSet>
 </databaseChangeLog>

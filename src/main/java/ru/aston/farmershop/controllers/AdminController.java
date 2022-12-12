@@ -1,11 +1,11 @@
 package ru.aston.farmershop.controllers;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.aston.farmershop.dto.UserDto;
 import ru.aston.farmershop.entities.User;
 import ru.aston.farmershop.mappers.UserMapper;
+import ru.aston.farmershop.services.PaymentService;
 import ru.aston.farmershop.services.UserService;
 import ru.aston.farmershop.services.implementations.RegistrationService;
 
@@ -32,6 +33,8 @@ public class AdminController {
     private final UserMapper userMapper;
 
     private final RegistrationService registrationService;
+
+    private final PaymentService paymentService;
 
     @GetMapping("/users")
     List<UserDto> getAllUsers(){
@@ -55,5 +58,14 @@ public class AdminController {
         userService.updateUser(userId, userDto);
     }
 
+    /**
+     * Эндпоинт для проверки PaymentService, просто переводит деньги аутентифицированного юзера юзеру  с айди 1.
+     * Потом удалим.
+     */
+    @GetMapping("/user")
+    void getUserInfo(){
+        User user = userService.getAllUsers().get(0);
+        paymentService.transferMoneyToSeller(user, BigDecimal.valueOf(1000));
+    }
 
 }

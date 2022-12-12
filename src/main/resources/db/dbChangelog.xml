@@ -4,6 +4,7 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <include file="init.xml" relativeToChangelogFile="true"/>
+    <include file="V1/addBalanceColumn.xml" relativeToChangelogFile="true"/>
     <include file="V1/insertRoles.xml" relativeToChangelogFile="true"/>
     <include file="V1/insertUsers.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
