@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import ru.aston.farmershop.util.exceptions.NotEnoughMoneyException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -20,6 +21,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<ErrorInfo> handleEntityNotFoundException(HttpServletRequest req, EntityNotFoundException ex) {
         return logAndGetErrorInfo(req, ex, ErrorType.ENTITY_NOT_FOUND);
+    }
+
+    @ExceptionHandler(NotEnoughMoneyException.class)
+    public ResponseEntity<ErrorInfo> handleEntityNotFoundException(HttpServletRequest req, NotEnoughMoneyException ex) {
+        return logAndGetErrorInfo(req, ex, ErrorType.NOT_ENOUGH_MONEY);
     }
 
 }

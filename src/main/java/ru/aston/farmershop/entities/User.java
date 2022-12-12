@@ -1,5 +1,6 @@
 package ru.aston.farmershop.entities;
 
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -41,6 +42,8 @@ public class User {
     private boolean enabled;
 
     private String password;
+
+    private BigDecimal balance;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Role role;
