@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import java.math.BigDecimal;
+import lombok.ToString;
 
 @Entity
 @Table(name = "products")
@@ -21,6 +22,7 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

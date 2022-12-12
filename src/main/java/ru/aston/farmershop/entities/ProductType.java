@@ -15,10 +15,10 @@ import javax.persistence.GenerationType;
 import java.util.Collection;
 
 @Entity
-@Table(name = "product_type")
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name = "product_type")
 public class ProductType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +28,6 @@ public class ProductType {
     @Column(name = "type")
     private String type;
 
-    @OneToMany(mappedBy = "type")
-    private Collection<Product> products;
+//    @OneToMany(mappedBy = "type")
+//    private Collection<Product> products;
 }
