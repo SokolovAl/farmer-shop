@@ -27,7 +27,4 @@ public class ProductType {
 
     @Column(name = "type")
     private String type;
-
-//    @OneToMany(mappedBy = "type")
-//    private Collection<Product> products;
 }

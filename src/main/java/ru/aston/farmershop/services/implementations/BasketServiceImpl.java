@@ -81,10 +81,6 @@ public class BasketServiceImpl implements BasketService {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
-//        User user = getAuthenticatedUser();
-//        Product product = productService.getProductById(productId);
-//        redisTemplate.opsForList().remove()
-//        redisTemplate.opsForList().leftPush(user.getId().toString(), product.getId().toString());
     }
 
     private List<BasketProductDto> getBasketProductsDto() {

@@ -30,30 +30,6 @@ public class RedisConfig {
         return new LettuceConnectionFactory(config);
     }
 }
-//
-//    @Bean
-//    public RedisTemplate<String, Object> redisTemplate() {
-//        final RedisTemplate<String,Object> redisTemplate = new RedisTemplate<>();
-//        redisTemplate.setConnectionFactory(redisConnectionFactory());
-//        return redisTemplate;
-//    }
-//
-//    @Bean
-//    public RedisCacheConfiguration cacheConfiguration() {
-//        RedisCacheConfiguration cacheConfig = RedisCacheConfiguration.defaultCacheConfig()
-//                .entryTtl(Duration.ofSeconds(600))
-//                .disableCachingNullValues();
-//        return cacheConfig;
-//    }
-//
-//    @Bean
-//    public RedisCacheManager cacheManager() {
-//        RedisCacheManager rcm = RedisCacheManager.builder(redisConnectionFactory())
-//                .cacheDefaults(cacheConfiguration())
-//                .transactionAware()
-//                .build();
-//        return rcm;
-//    }
 
 
 
