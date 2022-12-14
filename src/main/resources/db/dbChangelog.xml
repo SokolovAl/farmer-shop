@@ -7,5 +7,7 @@
     <include file="V1/addBalanceColumn.xml" relativeToChangelogFile="true"/>
     <include file="V1/insertRoles.xml" relativeToChangelogFile="true"/>
     <include file="V1/insertUsers.xml" relativeToChangelogFile="true"/>
+    <include file="V1/insertProductTypes.xml" relativeToChangelogFile="true"/>
+    <include file="V1/insertProducts.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
 

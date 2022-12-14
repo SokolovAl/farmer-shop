@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+  <changeSet author="monko" id="insert-products">
+    <insert tableName="products">
+      <column name="name" value="Говядина"/>
+      <column name="quantity" value="150"/>
+      <column name="price" value="900"/>
+      <column name="type_id" value="1"/>
+      <column name="user_id" value="3"/>
+    </insert>
+    <insert tableName="products">
+      <column name="name" value="Рыба"/>
+      <column name="quantity" value="250"/>
+      <column name="price" value="600"/>
+      <column name="type_id" value="2"/>
+      <column name="user_id" value="3"/>
+    </insert>
+    <insert tableName="products">
+      <column name="name" value="Картошка"/>
+      <column name="quantity" value="350"/>
+      <column name="price" value="100"/>
+      <column name="type_id" value="3"/>
+      <column name="user_id" value="3"/>
+    </insert>
+  </changeSet>
+</databaseChangeLog>
