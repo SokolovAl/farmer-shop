@@ -34,4 +34,9 @@ public class BasketController {
         basketService.removeProductFromBasket(productId);
     }
 
+    @GetMapping("/buy")
+    void buyProductFromBasket(){
+        basketService.buyProductsFromBasket();
+    }
+
 }
