@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import ru.aston.farmershop.util.exceptions.NoProductsInBasketException;
+import ru.aston.farmershop.util.exceptions.NoSuchProductInBasketException;
 import ru.aston.farmershop.util.exceptions.NotEnoughMoneyException;
 import ru.aston.farmershop.util.exceptions.NotEnoughProductQuantity;
 
@@ -38,6 +39,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(NoProductsInBasketException.class)
     public ResponseEntity<ErrorInfo> handleEntityNotFoundException(HttpServletRequest req, NoProductsInBasketException ex) {
         return logAndGetErrorInfo(req, ex, ErrorType.NO_PRODUCTS_IN_BASKET);
+    }
+
+    @ExceptionHandler(NoSuchProductInBasketException.class)
+    public ResponseEntity<ErrorInfo> handleEntityNotFoundException(HttpServletRequest req, NoSuchProductInBasketException ex) {
+        return logAndGetErrorInfo(req, ex, ErrorType.NO_SUCH_PRODUCT_IN_BASKET);
     }
 
 }

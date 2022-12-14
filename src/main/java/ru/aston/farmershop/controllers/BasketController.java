@@ -2,7 +2,9 @@ package ru.aston.farmershop.controllers;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,8 +19,6 @@ public class BasketController {
 
     private final BasketService basketService;
 
-
-
     @PostMapping
     void addProductToCart(@RequestParam String productId, @RequestParam Long quantity){
         basketService.addProductToBasket(Long.valueOf(productId), quantity);
@@ -29,5 +29,9 @@ public class BasketController {
         return basketService.getProductsInBasket();
     }
 
+    @DeleteMapping("/{productId}")
+    void deleteProductFromBasket(@PathVariable Long productId){
+        basketService.removeProductFromBasket(productId);
+    }
 
 }
