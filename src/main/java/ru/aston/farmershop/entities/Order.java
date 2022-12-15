@@ -12,9 +12,13 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,6 +39,4 @@ public class Order {
     @Column(name = "total_cost", nullable = false)
     private BigDecimal totalCost;
 
-//    @Enumerated(EnumType.STRING)
-//    private OrderStatus orderStatus;
 }
