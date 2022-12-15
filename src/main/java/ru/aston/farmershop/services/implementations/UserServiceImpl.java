@@ -37,14 +37,20 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(Long id, UserDto userDto) {
+        User user = getUserById(id);
+        userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        User updatedUser = userMapper.toUser(userDto);
+        updatedUser.setId(id);
+        updatedUser.setRole(user.getRole());
+        updatedUser.setEnabled(user.isEnabled());
+        userRepository.save(updatedUser);
+    }
+
+    @Override
+    public User getUserById(Long id) {
         Optional<User> optionalUser = userRepository.findById(id);
         if(optionalUser.isPresent()){
-            userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
-            User user = userMapper.toUser(userDto);
-            user.setId(id);
-            user.setRole(optionalUser.get().getRole());
-            user.setEnabled(optionalUser.get().isEnabled());
-            userRepository.save(user);
+            return optionalUser.get();
         }
         else {
             throw new EntityNotFoundException();
